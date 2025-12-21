@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Header from './Components/header/header.jsx'; // Ensure this path matches where you saved header.jsx
+import Footer from './Components/footer/footer.jsx';
 
 function App() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -142,6 +143,7 @@ function App() {
         </div>
       )}
     </div>
+    <Footer/>
     </>
   );
 }
