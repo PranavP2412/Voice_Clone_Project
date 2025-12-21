@@ -10,7 +10,6 @@ body{
 body {
   margin: 0;
   padding: 0;
-  /* 2. Apply it here */
   font-family: 'Ubuntu', sans-serif; 
   
   /* Keep your background settings */
@@ -19,7 +18,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Keeps bg still while scrolling */
+  background-attachment: fixed;
   min-height: 100vh;
   color: white;
 }

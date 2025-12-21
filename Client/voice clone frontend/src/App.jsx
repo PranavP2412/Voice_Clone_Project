@@ -125,7 +125,7 @@ function App() {
       {/* --- SECTION 2: RESULT & SAVE --- */}
       {clonedAudioUrl && (
         <div className="card">
-          <h3>2. Result Preview</h3>
+          <h3>Result Preview</h3>
           <audio controls src={clonedAudioUrl}></audio>
           
           <div className="save-section">

@@ -1,6 +1,4 @@
-/* App.css */
 
-/* Main Container */
 .container {
   max-width: 700px;
   width: 90%;
@@ -8,9 +6,9 @@
   text-align: center;
 }
 
-/* Typography */
+
 h1 {
-  color: #ffffff; /* White Title */
+  color: #ffffff;
   margin-bottom: 10px;
   font-size: 2.5rem;
   font-weight: 800;
@@ -18,7 +16,7 @@ h1 {
 }
 
 h3 {
-  color: #e2e8f0; /* Very light grey */
+  color: #e2e8f0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 15px;
   margin-top: 0;
@@ -30,12 +28,11 @@ p {
     color: #cbd5e1;
 }
 
-/* --- DARK GLASS CARD --- */
 .card {
-  background: rgba(0, 0, 0, 0.6);     /* Dark see-through background */
-  backdrop-filter: blur(20px);        /* Blur behind */
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);        
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15); /* White edge */
+  border: 1px solid rgba(255, 255, 255, 0.15); 
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   
   border-radius: 16px;
@@ -47,12 +44,12 @@ p {
 
 .card:hover {
   transform: translateY(-2px);
-  border-color: rgba(59, 130, 246, 0.5); /* Blue glow on hover */
+  border-color: rgba(59, 130, 246, 0.5);
 }
 
-/* Inputs - Dark Mode Style */
+
 input[type="file"] {
-  background: rgba(255, 255, 255, 0.05); /* Very subtle fill */
+  background: rgba(255, 255, 255, 0.05); 
   padding: 15px;
   border: 2px dashed rgba(255, 255, 255, 0.2);
   border-radius: 12px;
@@ -107,23 +104,23 @@ input[type="text"]:focus {
   border-color: #3b82f6;
 }
 
-/* Buttons */
+
 button {
-  /* A subtle gradient makes it look premium */
+  
 background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
   color: white;
   border: none;
   padding: 14px 28px;
   font-size: 1rem;
-  border-radius: 12px; /* Slightly softer corners */
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
   width: 100%;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   
-  /* THE GLOW: This creates the neon effect */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle rim light */
+  
+  border: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
 button:hover {
@@ -159,7 +156,7 @@ button:disabled {
   box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
 }
 
-/* Status Text */
+
 .status-text {
   font-weight: 500;
   color: #94a3b8;
@@ -168,47 +165,41 @@ button:disabled {
   font-size: 0.95rem;
 }
 
-/* App.css */
 
-/* Add this to fix the invisible labels */
 label {
   display: block;
-  color: #e2e8f0; /* Light Grey/White to match your theme */
-  margin-bottom: 10px;
+  color: #e2e8f0;
   font-weight: 500;
   font-size: 0.95rem;
 }
-/* App.css */
 
-/* 1. The Container (The dashed box) */
 .file-upload-wrapper {
   display: flex;
-  align-items: center; /* Vertically aligns button and text */
-  gap: 15px; /* Space between button and text */
+  align-items: center;
+  gap: 15px;
   
-  width: 95%; /* Match your other inputs */
-  padding: 10px; /* Inner spacing */
+  width: 95%;
+  padding: 10px;
   margin-bottom: 20px;
   
-  background: rgba(255, 255, 255, 0.05); /* Subtle dark glass */
-  border: 2px dashed rgba(255, 255, 255, 0.2); /* Dashed border */
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   transition: border-color 0.2s, background 0.2s;
 }
 
 .file-upload-wrapper:hover {
-  border-color: #3b82f6; /* Blue border on hover */
-  background: rgba(59, 130, 246, 0.1); /* Slight blue tint */
+  border-color: #3b82f6; 
+  background: rgba(59, 130, 246, 0.1);
 }
 
-/* 2. Hide the ugly default browser input */
+
 .hidden-file-input {
   display: none; 
 }
 
-/* 3. The "Button" (Actually a label) */
 .custom-file-button {
-  background-color: #334155; /* Dark Slate Blue */
+  background-color: #334155;
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
@@ -217,25 +208,24 @@ label {
   font-size: 0.9rem;
   transition: all 0.2s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  white-space: nowrap; /* Prevents text wrapping */
-  
-  /* Reset the label styles we set earlier globally */
+  white-space: nowrap;
+
   margin-bottom: 0 !important; 
   display: inline-block !important;
 }
 
 .custom-file-button:hover {
-  background-color: #3b82f6; /* Bright Blue on hover */
+  background-color: #3b82f6;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 /* 4. The File Name Text */
 .file-name-display {
-  color: #cbd5e1; /* Light grey text */
+  color: #cbd5e1;
   font-style: italic;
   font-size: 0.9rem;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Adds "..." if name is too long */
+  text-overflow: ellipsis; 
 }
