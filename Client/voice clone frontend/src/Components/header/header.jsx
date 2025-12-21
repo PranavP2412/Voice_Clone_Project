@@ -1,6 +1,5 @@
 import React from 'react';
-// We don't need to import CSS here because it's already imported in App.js
-// But ensure the classNames match your App.css exactly.
+import './header.css'; // Ensure we import the CSS
 
 const Header = () => {
   return (
@@ -8,24 +7,24 @@ const Header = () => {
       
       {/* Left: Logo */}
       <a href="/" className="header-logo">
-        <span style={{ color: '#F4B400' }}>F</span>
-        <span style={{ color: '#F4B400' }}>OO</span>
-        <span style={{ color: '#F4B400' }}>D</span>
-        <span style={{ color: '#4285F4' }}>EX</span>
+        {/* Just use the file name with a slash in front */}
+        <img 
+          src="/unnamed.png" 
+          alt="VoiceAI Logo"
+          style={{ height: '50px', width: 'auto', display: 'block' }} 
+        />
       </a>
 
       {/* Center: Navigation Links */}
       <nav className="header-nav">
-        <a href="#home" style={{ color: '#007bff' }}>Home</a> {/* Active style */}
-        <a href="#about">About</a>
-        <a href="#foods">Foods</a>
-        <a href="#delivery">Delivery</a>
-        <a href="#contact">Contact</a>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
       </nav>
 
       {/* Right: Action Button */}
       <button className="header-button">
-        Sign Up
+        Login
       </button>
 
     </header>

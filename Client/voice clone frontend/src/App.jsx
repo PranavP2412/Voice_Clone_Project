@@ -1,38 +1,31 @@
 import { useState } from 'react';
-import './App.css'; // Keep your existing styling if you have any
-import Header from './Components/header/header';
+import './App.css';
+import Header from './Components/header/header.jsx'; // Ensure this path matches where you saved header.jsx
 
 function App() {
-  // State for input
   const [selectedFile, setSelectedFile] = useState(null);
   const [textInput, setTextInput] = useState("");
   const [userName, setUserName] = useState("");
-
-  // State for results
   const [clonedAudioUrl, setClonedAudioUrl] = useState(null);
-  const [clonedBlob, setClonedBlob] = useState(null); // We need this to save the file later
-  
-  // State for UI
+  const [clonedBlob, setClonedBlob] = useState(null);
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
 
-  // --- FUNCTION 1: CLONE THE VOICE ---
   const handleClone = async (e) => {
     e.preventDefault();
     if (!selectedFile || !textInput) {
-      alert("Please provide both a voice sample and text.");
+      alert("Please upload a voice sample and enter text.");
       return;
     }
 
     setLoading(true);
-    setStatusMessage("AI is processing... this might take a moment.");
+    setStatusMessage("✨ AI is analyzing voice patterns and generating audio...");
 
     const formData = new FormData();
     formData.append('audio_file', selectedFile);
     formData.append('text_input', textInput);
 
     try {
-      // Note: In Vite, we point directly to the Flask port
       const response = await fetch('http://localhost:5000/api/clone', {
         method: 'POST',
         body: formData,
@@ -40,30 +33,27 @@ function App() {
 
       if (!response.ok) throw new Error("Failed to clone voice");
 
-      // Convert result to a playable Blob
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       
       setClonedAudioUrl(url);
-      setClonedBlob(blob); // Save blob state so we can upload it next
-      setStatusMessage("Voice cloned successfully! Listen below.");
+      setClonedBlob(blob);
+      setStatusMessage("✅ Success! Your cloned voice is ready.");
 
     } catch (error) {
       console.error(error);
-      setStatusMessage("Error: " + error.message);
+      setStatusMessage("❌ Error: " + error.message);
     }
     setLoading(false);
   };
 
-  // --- FUNCTION 2: SAVE TO MONGODB ---
   const handleSave = async () => {
     if (!clonedBlob || !userName) {
-      alert("Please enter a User Name and ensure audio is generated.");
+      alert("Please enter a name for this file.");
       return;
     }
 
     const formData = new FormData();
-    // We send the 'clonedBlob' we got from the AI, giving it a filename
     formData.append('audio_file', clonedBlob, `${userName}_cloned.wav`);
     formData.append('user_name', userName);
 
@@ -74,7 +64,7 @@ function App() {
       });
 
       if (response.ok) {
-        alert("Audio saved to database!");
+        alert("Audio successfully saved to database!");
       } else {
         alert("Failed to save.");
       }
@@ -87,51 +77,66 @@ function App() {
   return (
     <>
     <Header/>
-    <div className="container" style={{ padding: '2rem', textAlign: 'center' }}>
-      <h1>AI Voice Cloner</h1>
+    <div className="container">
+      <h1>AI Voice Studio</h1>
+      <p style={{color: '#fafbfdff', marginBottom: '30px'}}>Clone any voice in seconds using our advanced AI model.</p>
       
       {/* --- SECTION 1: INPUTS --- */}
       <div className="card">
-        <h3>1. Upload & Text</h3>
-        <input 
-          type="file" 
-          onChange={(e) => setSelectedFile(e.target.files[0])} 
-          accept="audio/*" 
-          style={{ display: 'block', margin: '10px auto' }}
-        />
+        <h3>Create New Voice Clone</h3>
+        <label>Upload Reference Audio</label>
+
+{/* New Custom File Upload Wrapper */}
+<div className="file-upload-wrapper">
+  <input 
+    type="file" 
+    id="audio-upload"
+    className="hidden-file-input"
+    onChange={(e) => setSelectedFile(e.target.files[0])} 
+    accept="audio/*" 
+  />
+  
+  {/* This label acts as the button */}
+  <label htmlFor="audio-upload" className="custom-file-button">
+    Choose File
+  </label>
+  
+  {/* This shows the file name or placeholder */}
+  <span className="file-name-display">
+    {selectedFile ? selectedFile.name : "No file chosen"}
+  </span>
+</div>
+        
+        <label style={{display:'block', marginBottom:'10px', fontWeight:'500'}}>Text to Speak</label>
         <textarea 
           value={textInput}
           onChange={(e) => setTextInput(e.target.value)}
-          placeholder="What should the cloned voice say?"
+          placeholder="Type the text you want the AI to speak here..."
           rows="4"
-          cols="50"
-          style={{ width: '80%', padding: '10px' }}
         />
-        <br />
-        <button onClick={handleClone} disabled={loading} style={{ marginTop: '10px' }}>
-          {loading ? "Processing..." : "Generate Voice"}
+        
+        <button onClick={handleClone} disabled={loading}>
+          {loading ? "Processing AI Model..." : "Generate Voice Clone"}
         </button>
       </div>
 
-      <p>{statusMessage}</p>
+      <p className="status-text">{statusMessage}</p>
 
       {/* --- SECTION 2: RESULT & SAVE --- */}
       {clonedAudioUrl && (
-        <div className="card" style={{ marginTop: '20px', border: '1px solid #ccc', padding: '20px' }}>
-          <h3>2. Result</h3>
-          <audio controls src={clonedAudioUrl} style={{ width: '100%' }}></audio>
+        <div className="card">
+          <h3>2. Result Preview</h3>
+          <audio controls src={clonedAudioUrl}></audio>
           
-          <div style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px dashed #666' }}>
-            <h4>Save this result?</h4>
+          <div className="save-section">
             <input 
               type="text" 
-              placeholder="Enter User Name" 
+              placeholder="Name this generation..." 
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              style={{ marginRight: '10px', padding: '5px' }}
             />
-            <button onClick={handleSave} style={{ backgroundColor: '#4CAF50', color: 'white' }}>
-              Save to Database
+            <button onClick={handleSave}>
+              Save to Library
             </button>
           </div>
         </div>

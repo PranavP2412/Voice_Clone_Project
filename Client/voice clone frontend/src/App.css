@@ -1,132 +1,241 @@
 /* App.css */
 
-/* General Page Styling */
-body {
-  background-color: #f4f7f9;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-}
-
 /* Main Container */
 .container {
-  max-width: 600px;
-  width: 100%;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 700px;
+  width: 90%;
+  margin: 60px auto;
+  text-align: center;
 }
 
-/* Headers */
+/* Typography */
 h1 {
-  color: #2c3e50;
-  margin-bottom: 30px;
-  font-size: 2.2rem;
+  color: #ffffff; /* White Title */
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 h3 {
-  color: #34495e;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
+  color: #e2e8f0; /* Very light grey */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
   margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-/* Card Component (The white boxes) */
+p {
+    color: #cbd5e1;
+}
+
+/* --- DARK GLASS CARD --- */
 .card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  padding: 25px;
-  margin-bottom: 25px;
-  text-align: left; /* Aligns labels and inputs nicely */
-  transition: transform 0.2s;
+  background: rgba(0, 0, 0, 0.6);     /* Dark see-through background */
+  backdrop-filter: blur(20px);        /* Blur behind */
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15); /* White edge */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+  transition: transform 0.2s ease, border-color 0.2s;
 }
 
 .card:hover {
-  transform: translateY(-2px); /* Slight lift effect */
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.5); /* Blue glow on hover */
 }
 
-/* Inputs & Textareas */
+/* Inputs - Dark Mode Style */
 input[type="file"] {
-  background: #f8f9fa;
-  padding: 10px;
-  border: 1px dashed #ccc;
-  border-radius: 8px;
-  width: 100%;
-  box-sizing: border-box; /* Ensures padding doesn't break width */
-  margin-bottom: 15px !important;
+  background: rgba(255, 255, 255, 0.05); /* Very subtle fill */
+  padding: 15px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  width: 95%;
+  margin-bottom: 20px !important;
   cursor: pointer;
+  transition: all 0.2s;
+  color: #e2e8f0;
+}
+
+input[type="file"]:hover {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
 }
 
 textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  width: 95%;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
   font-family: inherit;
-  resize: vertical; /* Allows resizing only vertically */
-  box-sizing: border-box;
+  resize: vertical;
   font-size: 1rem;
+  margin-bottom: 20px;
+  transition: all 0.2s;
+}
+
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
 }
 
 input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
   width: 60%;
+  font-size: 1rem;
 }
 
-textarea:focus, input[type="text"]:focus {
+input[type="text"]:focus {
   outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
+  border-color: #3b82f6;
 }
 
 /* Buttons */
 button {
-  background-color: #3498db;
+  /* A subtle gradient makes it look premium */
+background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 14px 28px;
   font-size: 1rem;
-  border-radius: 8px;
+  border-radius: 12px; /* Slightly softer corners */
   cursor: pointer;
-  transition: background-color 0.3s;
   font-weight: 600;
+  width: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* THE GLOW: This creates the neon effect */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle rim light */
 }
 
 button:hover {
-  background-color: #2980b9;
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
 }
 
 button:disabled {
-  background-color: #bdc3c7;
+  background: #475569;
   cursor: not-allowed;
+  box-shadow: none;
+  color: #94a3b8;
 }
 
-/* The Save Button Specifics */
-button[style*="background-color: #4CAF50"] {
-  background-color: #2ecc71 !important; /* Overriding inline style for consistency */
+/* Save Section */
+.save-section {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
 }
 
-button[style*="background-color: #4CAF50"]:hover {
-  background-color: #27ae60 !important;
+.save-section button {
+  width: auto;
+  flex-grow: 1;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Green Gradient */
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
-/* Audio Player */
-audio {
-  margin-top: 15px;
-  border-radius: 8px;
-  outline: none;
+.save-section button:hover {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
 }
 
-/* Status Message */
-p {
+/* Status Text */
+.status-text {
   font-weight: 500;
-  color: #666;
-  margin: 15px 0;
-  min-height: 24px; /* Prevents layout jump when text appears */
+  color: #94a3b8;
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* App.css */
+
+/* Add this to fix the invisible labels */
+label {
+  display: block;
+  color: #e2e8f0; /* Light Grey/White to match your theme */
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+/* App.css */
+
+/* 1. The Container (The dashed box) */
+.file-upload-wrapper {
+  display: flex;
+  align-items: center; /* Vertically aligns button and text */
+  gap: 15px; /* Space between button and text */
+  
+  width: 95%; /* Match your other inputs */
+  padding: 10px; /* Inner spacing */
+  margin-bottom: 20px;
+  
+  background: rgba(255, 255, 255, 0.05); /* Subtle dark glass */
+  border: 2px dashed rgba(255, 255, 255, 0.2); /* Dashed border */
+  border-radius: 12px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.file-upload-wrapper:hover {
+  border-color: #3b82f6; /* Blue border on hover */
+  background: rgba(59, 130, 246, 0.1); /* Slight blue tint */
+}
+
+/* 2. Hide the ugly default browser input */
+.hidden-file-input {
+  display: none; 
+}
+
+/* 3. The "Button" (Actually a label) */
+.custom-file-button {
+  background-color: #334155; /* Dark Slate Blue */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap; /* Prevents text wrapping */
+  
+  /* Reset the label styles we set earlier globally */
+  margin-bottom: 0 !important; 
+  display: inline-block !important;
+}
+
+.custom-file-button:hover {
+  background-color: #3b82f6; /* Bright Blue on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* 4. The File Name Text */
+.file-name-display {
+  color: #cbd5e1; /* Light grey text */
+  font-style: italic;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds "..." if name is too long */
 }

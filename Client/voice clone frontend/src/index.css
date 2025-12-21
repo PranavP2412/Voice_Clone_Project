@@ -1,7 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
 body{
   background-image: url('./static/images/bg.jpg');
   background-color: black;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+body {
+  margin: 0;
+  padding: 0;
+  /* 2. Apply it here */
+  font-family: 'Ubuntu', sans-serif; 
+  
+  /* Keep your background settings */
+  background-image: url('./static/images/bg.jpg');
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps bg still while scrolling */
+  min-height: 100vh;
+  color: white;
 }
