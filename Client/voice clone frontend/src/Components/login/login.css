@@ -1,0 +1,114 @@
+.login-container {
+    /* --- DARK GLASS EFFECT --- */
+    background: rgba(0, 0, 0, 0.6);       /* Dark see-through background */
+    backdrop-filter: blur(20px);          /* Blur behind the card */
+    -webkit-backdrop-filter: blur(20px);  /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle white border */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Deep shadow */
+    /* ------------------------- */
+
+    border-radius: 16px; /* Matches your other cards */
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    
+    /* Centering logic */
+    /* 'margin-left: 500px' is risky on small screens. 
+       Using 'margin: 100px auto' centers it perfectly on any screen size. */
+    margin: 100px auto; 
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    color: #ffffff; /* White text for dark mode */
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.login-header p {
+    color: #cbd5e1; /* Light grey text */
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #e2e8f0; /* White/Light Grey label */
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    
+    /* Dark Glass Input Style */
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white; /* Text user types is white */
+    
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s;
+    box-sizing: border-box; /* Prevents padding from breaking width */
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3b82f6; /* Blue glow on focus */
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    
+    /* YOUR NEW COLOR */
+    background-color: #513bf6; 
+    
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    
+    /* Optional: A matching colored shadow (glow) */
+    box-shadow: 0 4px 15px rgba(81, 59, 246, 0.3);
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    /* Make it slightly darker/brighter on hover */
+    filter: brightness(1.1); 
+    box-shadow: 0 6px 20px rgba(81, 59, 246, 0.5);
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #94a3b8; /* Muted grey */
+}
+
+.login-footer a {
+    color: #513bf6; /* Light Blue link */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+    color: #513bf6;
+}

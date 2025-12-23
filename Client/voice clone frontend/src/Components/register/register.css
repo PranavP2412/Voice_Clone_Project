@@ -1,0 +1,105 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* REMOVED the purple gradient background so your main 'bg.jpg' shows through */
+    font-family: 'Ubuntu', 'Segoe UI', sans-serif; /* Updated to match your font */
+}
+
+.register-box {
+    /* --- DARK GLASS EFFECT --- */
+    background: rgba(0, 0, 0, 0.6);       /* Dark see-through background */
+    backdrop-filter: blur(20px);          /* Blur behind the card */
+    -webkit-backdrop-filter: blur(20px);  
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle white border */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    /* ------------------------- */
+
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.register-box h2 {
+    text-align: center;
+    color: #ffffff; /* White text */
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #e2e8f0; /* Light Grey/White */
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    
+    /* Dark Glass Input Style */
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white; /* Text user types is white */
+    
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #513bf6; /* Glow matches your button */
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 4px rgba(81, 59, 246, 0.2);
+}
+
+.register-btn {
+    width: 100%;
+    padding: 12px;
+    
+    /* YOUR SPECIFIC COLOR */
+    background-color: #513bf6; 
+    
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(81, 59, 246, 0.3);
+}
+
+.register-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0 6px 20px rgba(81, 59, 246, 0.5);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #94a3b8; /* Muted grey */
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #60a5fa; /* Light Blue link */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+    color: #93c5fd;
+}
