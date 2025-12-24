@@ -1,18 +1,19 @@
 import React from 'react';
-import './header.css'; // Ensure we import the CSS
-import {Link, NavLink} from "react-router-dom"
+import './header.css'; 
+import { Link } from "react-router-dom";
 
-const Header = () => {
+// 1. Accept props (userId and logout function) from App.jsx
+const Header = ({ userId, logout }) => {
+
   return (
     <header className="header">
-      
+
       {/* Left: Logo */}
       <Link to="/" className="header-logo">
-        {/* Just use the file name with a slash in front */}
-        <img 
-          src="/unnamed.png" 
+        <img
+          src="/unnamed.png"
           alt="VoiceAI Logo"
-          style={{ height: '50px', width: 'auto', display: 'block' }} 
+          style={{ height: '50px', width: 'auto', display: 'block' }}
         />
       </Link>
 
@@ -24,9 +25,22 @@ const Header = () => {
       </nav>
 
       {/* Right: Action Button */}
-      <button className="header-button">
-        Login
-      </button>
+      {/* 2. Use Ternary Operator instead of if/else */}
+      <div className="header-actions">
+        {userId ? (
+            // IF LOGGED IN: Show Logout Button (Runs the function)
+            <button className="header-button" onClick={logout}>
+                Logout
+            </button>
+        ) : (
+            // IF LOGGED OUT: Show Login Link
+            <Link to="/login">
+                <button className="header-button">
+                    Login
+                </button>
+            </Link>
+        )}
+      </div>
 
     </header>
   );
