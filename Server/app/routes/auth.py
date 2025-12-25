@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
-from app import mongo
+# CORRECT IMPORT
+from app.extensions import mongo
 
 auth_bp = Blueprint('auth', __name__)
 

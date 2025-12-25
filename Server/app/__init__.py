@@ -1,13 +1,16 @@
 from flask import Flask
 from flask_cors import CORS
-from app import mongo # <--- Import from extensions
+
+# CORRECT IMPORT: Get 'mongo' from your local extensions file
+from app.extensions import mongo 
 
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'SecretKey123'
-    app.config['MONGO_URI'] = 'mongodb://localhost:27017/Voice_Clone'
+    app.config['MONGO_URI'] = 'mongodb://localhost:27017/todo_db'
     
-    mongo.init_app(app) # Initialize the imported mongo
+    # Initialize mongo with this app
+    mongo.init_app(app)
     CORS(app)
     
     from app.routes.auth import auth_bp

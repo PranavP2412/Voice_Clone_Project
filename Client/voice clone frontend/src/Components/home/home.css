@@ -1,11 +1,10 @@
-
+/* --- CONTAINER & HEADINGS --- */
 .container {
   max-width: 700px;
   width: 90%;
   margin: 60px auto;
   text-align: center;
 }
-
 
 h1 {
   color: #ffffff;
@@ -28,6 +27,7 @@ p {
     color: #cbd5e1;
 }
 
+/* --- CARD STYLES --- */
 .card {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(20px);        
@@ -47,140 +47,15 @@ p {
   border-color: rgba(59, 130, 246, 0.5);
 }
 
-
-input[type="file"] {
-  background: rgba(255, 255, 255, 0.05); 
-  padding: 15px;
-  border: 2px dashed rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  width: 95%;
-  margin-bottom: 20px !important;
-  cursor: pointer;
-  transition: all 0.2s;
-  color: #e2e8f0;
-}
-
-input[type="file"]:hover {
-  border-color: #3b82f6;
-  background: rgba(59, 130, 246, 0.1);
-}
-
-textarea {
-  width: 95%;
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
-  padding: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  font-family: inherit;
-  resize: vertical;
-  font-size: 1rem;
-  margin-bottom: 20px;
-  transition: all 0.2s;
-}
-
-textarea::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-textarea:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
-}
-
-input[type="text"] {
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
-  padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  width: 60%;
-  font-size: 1rem;
-}
-
-input[type="text"]:focus {
-  outline: none;
-  border-color: #3b82f6;
-}
-
-
-button {
-  
-background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
-  color: white;
-  border: none;
-  padding: 14px 28px;
-  font-size: 1rem;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 600;
-  width: 100%;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  
-  border: 1px solid rgba(255, 255, 255, 0.1); 
-}
-
-button:hover {
-  filter: brightness(1.1);
-  transform: translateY(-1px);
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
-}
-
-button:disabled {
-  background: #475569;
-  cursor: not-allowed;
-  box-shadow: none;
-  color: #94a3b8;
-}
-
-/* Save Section */
-.save-section {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px dashed rgba(255, 255, 255, 0.2);
-}
-
-.save-section button {
-  width: auto;
-  flex-grow: 1;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Green Gradient */
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-}
-
-.save-section button:hover {
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
-}
-
-
-.status-text {
-  font-weight: 500;
-  color: #94a3b8;
-  margin: 1rem 0;
-  text-align: center;
-  font-size: 0.95rem;
-}
-
-
-label {
-  display: block;
-  color: #e2e8f0;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
+/* --- CUSTOM FILE UPLOAD (New) --- */
 .file-upload-wrapper {
   display: flex;
   align-items: center;
   gap: 15px;
   
-  width: 95%;
-  padding: 10px;
-  margin-bottom: 20px;
+  width: 95%; /* Matches old inputs */
+  padding: 15px;
+  margin-bottom: 25px;
   
   background: rgba(255, 255, 255, 0.05);
   border: 2px dashed rgba(255, 255, 255, 0.2);
@@ -192,7 +67,6 @@ label {
   border-color: #3b82f6; 
   background: rgba(59, 130, 246, 0.1);
 }
-
 
 .hidden-file-input {
   display: none; 
@@ -220,7 +94,6 @@ label {
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-/* 4. The File Name Text */
 .file-name-display {
   color: #cbd5e1;
   font-style: italic;
@@ -228,4 +101,113 @@ label {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; 
+}
+
+/* --- TEXT INPUT (For naming the file) --- */
+/* (We kept this because you still use it for 'Name this generation') */
+input[type="text"] {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  width: 60%;
+  font-size: 1rem;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+/* --- BUTTONS --- */
+button {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+button:disabled {
+  background: #475569;
+  cursor: not-allowed;
+  box-shadow: none;
+  color: #94a3b8;
+}
+
+/* --- SAVE SECTION --- */
+.save-section {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.save-section button {
+  width: auto;
+  flex-grow: 1;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Green Gradient */
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.save-section button:hover {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+/* --- LABELS & STATUS --- */
+.status-text {
+  font-weight: 500;
+  color: #94a3b8;
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+label {
+  display: block;
+  color: #e2e8f0;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 8px; /* Added spacing for labels */
+}
+
+/* --- AUDIO PLAYER --- */
+audio {
+  width: 100%;               /* Make it fill the card width */
+  height: 45px;              /* Consistent height */
+  margin: 15px 0 25px 0;     /* Spacing around the player */
+  border-radius: 25px;       /* Soft rounded corners */
+  outline: none;             /* Remove blue outline on click */
+  
+  /* Chrome/Edge/Safari specific styling */
+&::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  &::-webkit-media-controls-enclosure {
+    border-radius: 25px;
+  }
+
+  /* Adjust the play button color (Chrome only) */
+  &::-webkit-media-controls-play-button,
+  &::-webkit-media-controls-mute-button {
+    filter: invert(1); /* Inverts black icons to white if needed, or remove to keep default */
+    opacity: 0.7;
+  }
 }

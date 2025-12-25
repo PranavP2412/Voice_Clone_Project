@@ -15,7 +15,6 @@ export default function Login() {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json", //it tells the flask what type of data is being send so that it can use request.get_json() otherwise it will give none
-
                 },
                 body: JSON.stringify({
                     email:Email,
