@@ -11,13 +11,11 @@ function Home() {
   const handleClone = async (e) => {
     e.preventDefault();
 
-    // 1. Check if file exists
     if (!selectedFile) {
       alert("Please upload a voice sample.");
       return;
     }
 
-    // 2. UPDATED VALIDATION: Allow both MP3 and WAV
     const validTypes = ['.mp3', '.wav'];
     const fileExtension = selectedFile.name.toLowerCase().slice(selectedFile.name.lastIndexOf('.'));
     
@@ -33,8 +31,6 @@ function Home() {
     formData.append('audio_file', selectedFile);
 
     try {
-      // NOTE: Make sure this URL matches your backend route prefix!
-      // If you used 'api/voice' in __init__.py, use that here.
       const response = await fetch('http://localhost:5000/api/voice/clone', {
         method: 'POST',
         body: formData,
@@ -46,11 +42,11 @@ function Home() {
       const url = URL.createObjectURL(blob);
 
       setClonedAudioUrl(url);
-      setStatusMessage("✅ Success! Audio processing complete.");
+      setStatusMessage("Success! Audio processing complete.");
 
     } catch (error) {
       console.error(error);
-      setStatusMessage("❌ Error: " + error.message);
+      setStatusMessage("Error: " + error.message);
     }
     setLoading(false);
   };
@@ -86,7 +82,6 @@ function Home() {
               id="audio-upload"
               className="hidden-file-input"
               onChange={(e) => setSelectedFile(e.target.files[0])}
-              // 3. UPDATED ACCEPT ATTRIBUTE
               accept=".mp3,audio/mpeg,.wav,audio/wav" 
             />
 

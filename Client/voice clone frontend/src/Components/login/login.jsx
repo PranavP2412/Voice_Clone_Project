@@ -29,7 +29,7 @@ export default function Login() {
                 navigate('/');
                 window.location.reload();
             } else {
-                alert("❌ Error: " + data.error);
+                alert("Error: " + data.error);
             }
         }catch (error) {
             console.error("Error:", error);
