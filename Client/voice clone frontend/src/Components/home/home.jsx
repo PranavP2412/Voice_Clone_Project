@@ -95,7 +95,7 @@ function Home() {
           </div>
 
           <button onClick={handleClone} disabled={loading} style={{ marginTop: '20px' }}>
-            {loading ? "Processing..." : "Upload & Process Audio"}
+            {loading ? "Processing" : "Upload & Process Audio"}
           </button>
         </div>
 
