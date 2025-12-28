@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import './home.css';
+import Box from '../features/box/box';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRocket, faAnchorLock, faFileArrowUp, faDownload } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -18,7 +21,7 @@ function Home() {
 
     const validTypes = ['.mp3', '.wav'];
     const fileExtension = selectedFile.name.toLowerCase().slice(selectedFile.name.lastIndexOf('.'));
-    
+
     if (!validTypes.includes(fileExtension)) {
       alert("Invalid file type. Please upload an MP3 or WAV file.");
       return;
@@ -82,7 +85,7 @@ function Home() {
               id="audio-upload"
               className="hidden-file-input"
               onChange={(e) => setSelectedFile(e.target.files[0])}
-              accept=".mp3,audio/mpeg,.wav,audio/wav" 
+              accept=".mp3,audio/mpeg,.wav,audio/wav"
             />
 
             <label htmlFor="audio-upload" className="custom-file-button">
@@ -120,6 +123,28 @@ function Home() {
           </div>
         )}
       </div>
+      <div className="features-grid">
+          <Box 
+            icon={<FontAwesomeIcon icon={faRocket} />} 
+            title="Fast Processing" 
+            description="Generate realistic voice clones in seconds with high-speed AI processing." 
+          />
+          <Box 
+            icon={<FontAwesomeIcon icon={faAnchorLock} />} 
+            title="Secure Storage" 
+            description="Your uploads are processed securely and deleted immediately after use." 
+          />
+          <Box 
+            icon={<FontAwesomeIcon icon={faFileArrowUp} />} 
+            title="High Quality" 
+            description="Enjoy crystal clear, uncompressed 44.1kHz studio-quality audio with a single click." 
+          />
+          <Box 
+            icon={<FontAwesomeIcon icon={faDownload} />} 
+            title="Instant Export" 
+            description="Download high-fidelity and quality WAV files instantly for use in any project." 
+          />
+        </div>
     </>
   );
 }

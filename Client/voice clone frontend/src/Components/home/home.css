@@ -211,3 +211,76 @@ audio {
     opacity: 0.7;
   }
 }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px;                      /* Space between cards */
+  margin-top: 50px;               /* Space from the main card */
+  text-align: left;
+  margin-left: 10%;             /* Reset text alignment */
+}
+
+/* --- INDIVIDUAL FEATURE CARD --- */
+.feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  
+  /* --- NEW GLASS EFFECT (Matches Home Card) --- */
+  background: rgba(0, 0, 0, 0.6);       /* Darker background like the main card */
+  backdrop-filter: blur(20px);          /* The actual blur magic */
+  -webkit-backdrop-filter: blur(20px);  /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  /* ------------------------------------------- */
+
+  border-radius: 12px;
+  width: 500px;
+  transition: transform 0.2s ease, border-color 0.2s;
+  padding: 30px;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.5); /* Blue glow on border instead of bg change */
+}
+
+/* (Keep the rest of your icon and text styles the same) */
+.feature-icon {
+  font-size: 1.8rem;
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* margin-top: 25%; */
+}
+
+.feature-content h4 {
+  margin: 0 0 5px 0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feature-content p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+/* On phones, stack them 1 on top of another instead of 2x2 */
+@media (max-width: 600px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
