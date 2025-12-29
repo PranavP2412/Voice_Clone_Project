@@ -98,9 +98,12 @@ function Home() {
             <div className="input-group">
               <label>To</label>
               <select value={targetLang} onChange={(e) => setTargetLang(e.target.value)}>
-                {languages.map((lang) => (
-                  <option key={lang} value={lang}>{lang}</option>
-                ))}
+                {languages.map((lang) => {
+                  if(lang == sourceLang){
+                    return null;
+                  }
+                  return <option key={lang} value={lang}>{lang}</option>
+                })}
               </select>
             </div>
           </div>
