@@ -11,6 +11,12 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
 
+  // --- NEW: Language State ---
+  const [sourceLang, setSourceLang] = useState("English");
+  const [targetLang, setTargetLang] = useState("Hindi");
+
+  const languages = ["English", "Marathi", "Gujrati", "Hindi"];
+
   const handleClone = async (e) => {
     e.preventDefault();
 
@@ -21,7 +27,7 @@ function Home() {
 
     const validTypes = ['.mp3', '.wav'];
     const fileExtension = selectedFile.name.toLowerCase().slice(selectedFile.name.lastIndexOf('.'));
-
+    
     if (!validTypes.includes(fileExtension)) {
       alert("Invalid file type. Please upload an MP3 or WAV file.");
       return;
@@ -32,6 +38,8 @@ function Home() {
 
     const formData = new FormData();
     formData.append('audio_file', selectedFile);
+    formData.append('source_lang', sourceLang);
+    formData.append('target_lang', targetLang);
 
     try {
       const response = await fetch('http://localhost:5000/api/voice/clone', {
@@ -75,6 +83,28 @@ function Home() {
         </p>
 
         <div className="card">
+          
+          {/* --- NEW: Language Selection Row --- */}
+          <div className="language-row">
+            <div className="input-group">
+              <label>From</label>
+              <select value={sourceLang} onChange={(e) => setSourceLang(e.target.value)}>
+                {languages.map((lang) => (
+                  <option key={lang} value={lang}>{lang}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="input-group">
+              <label>To</label>
+              <select value={targetLang} onChange={(e) => setTargetLang(e.target.value)}>
+                {languages.map((lang) => (
+                  <option key={lang} value={lang}>{lang}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
           <h3>Upload Voice Sample</h3>
           <label>Reference Audio</label>
           <br />
@@ -85,7 +115,7 @@ function Home() {
               id="audio-upload"
               className="hidden-file-input"
               onChange={(e) => setSelectedFile(e.target.files[0])}
-              accept=".mp3,audio/mpeg,.wav,audio/wav"
+              accept=".mp3,audio/mpeg,.wav,audio/wav" 
             />
 
             <label htmlFor="audio-upload" className="custom-file-button">
@@ -98,7 +128,7 @@ function Home() {
           </div>
 
           <button onClick={handleClone} disabled={loading} style={{ marginTop: '20px' }}>
-            {loading ? "Processing" : "Upload & Process Audio"}
+            {loading ? "Processing..." : "Upload Audio"}
           </button>
         </div>
 
@@ -117,12 +147,13 @@ function Home() {
                 onChange={(e) => setUserName(e.target.value)}
               />
               <button onClick={handleDownload} style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)' }}>
-                ⬇ Download Audio
+                Download Audio
               </button>
             </div>
           </div>
         )}
       </div>
+
       <div className="features-grid">
           <Box 
             icon={<FontAwesomeIcon icon={faRocket} />} 
@@ -137,14 +168,14 @@ function Home() {
           <Box 
             icon={<FontAwesomeIcon icon={faFileArrowUp} />} 
             title="High Quality" 
-            description="Enjoy crystal clear, uncompressed 44.1kHz studio-quality audio with a single click." 
+            description="Enjoy crystal clear, uncompressed 44.1kHz studio-quality audio." 
           />
           <Box 
             icon={<FontAwesomeIcon icon={faDownload} />} 
             title="Instant Export" 
-            description="Download high-fidelity and quality WAV files instantly for use in any project." 
+            description="Download high-fidelity WAV files instantly for use in any project." 
           />
-        </div>
+      </div>
     </>
   );
 }
